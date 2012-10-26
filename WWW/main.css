@@ -107,6 +107,10 @@ border-bottom: solid 1px #000000;
 	margin: auto;
 }
 
+#third_layer_create_profile {
+
+}
+
 #create_personal_info_container {
 	border-width: 1px;
 	border-color: #000000;
@@ -117,7 +121,7 @@ border-bottom: solid 1px #000000;
 }
 
 #create_personal_info {
-	width: 25%;
+	width: 35%;
 	margin: auto;
 	padding-top: 100px;
 }
@@ -132,7 +136,7 @@ border-bottom: solid 1px #000000;
 }
 
 #create_experience {
-	width: 25%;
+	width: 35%;
 	margin: auto;
 	padding-top: 100px;
 }
@@ -151,7 +155,7 @@ border-bottom: solid 1px #000000;
 }
 
 #create_calendar {
-	width: 25%;
+	width: 35%;
 	margin: auto;
 	padding-top: 35px;
 }
