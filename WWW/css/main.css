@@ -1,5 +1,7 @@
-body {
+/*Travis*/
 
+body {
+	-webkit-text-size-adjust: none;
 }
 
 #header {
@@ -8,26 +10,30 @@ body {
 }
 
 #navigation_bar {
-	background-color : #99FFFF;
+	height : 55px;
+	background : -webkit-gradient(linear, left top, left bottom, from (#000033) to (#00008B));
+	-webkit-box-shadow: 0 0 2px #E4E3E3;
+	-webkit-border-radius:5px;
+	
 }
 
 #nav_button{
 	padding : 5px;
+	height : 50px;
 	background-color : black;
 	color : white;
 }
 
-#nav_button : hover{
-	background-color : white ;
-	color : black;
-}
-
-#left_user_div{
+#left_user_part{
 	float : left;
+	width : 50%;
+	height : 55px;
 }
 
-#right_button_div {
+#right_button_part {
 	float : right;
+	width : 50%;
+	height : 55px;
 }
 
 #content {
