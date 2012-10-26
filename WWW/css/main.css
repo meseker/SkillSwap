@@ -5,15 +5,19 @@ body {
 }
 
 #header {
-	background-color : #000099;
+	background-color : #0099ff;
+	color : white;
+	padding : 0px;
 	width : 100%;
 }
 
 #navigation_bar {
 	height : 55px;
-	background : -webkit-gradient(linear, left top, left bottom, from (#000033) to (#00008B));
+	background : -webkit-linear-gradient(bottom, rgb(80,71,105) 21%, rgb(0,153,255) 79%);
 	-webkit-box-shadow: 0 0 2px #E4E3E3;
-	-webkit-border-radius:5px;
+	padding : 10px;
+	color : white;
+	width : 100%;
 	
 }
 
@@ -26,13 +30,11 @@ body {
 
 #left_user_part{
 	float : left;
-	width : 50%;
 	height : 55px;
 }
 
 #right_button_part {
 	float : right;
-	width : 50%;
 	height : 55px;
 }
 
