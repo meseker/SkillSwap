@@ -23,24 +23,26 @@
 		Skill Searcher
 	</center>
 </div>
-
 <div id="navigation_bar">
 	<!--This div will be responsible for holding the username/logout, or the login_in if they are not logged in-->
-	<div data-role="navbar" class="nav-glyphish-example" data-grid="c">
-		<ul>
-			<li><a href="index.html" id="home" data-icon="custom" class="ui-btn-active">Home</a></li>
-			<li><a href="mail.html" id="email" data-icon="custom">Mail</a></li>
-		</ul>
+	<div id="left_user_part">
+		Hello Username
+		<br>
+		<small><i><a href="index.html"> logout </a></i></small>
+	</div>
+	<div id="right_button_part" data-role="controlgroup" data-type="horizontal">
+		<a href="index.html" data-role="button"> HOME </a>
+		<a href="profile.html" data-role="button"> PROFILE </a>
+		<a href="mail.html" data-role="button"> MAIL </a>
 	</div>
 </div>
-<br> <br>
-
+<br><br>
+</div>
 <div id="content">
-	<div id="control_panel" data-role="controlgroup" data-type="vertical">
-		<a href="createlisting.html" data-role="button"> Create Listing! </a>
-		<a href="categories.html" data-role="button"> Find a Teacher! </a>
+	<div id="listing" data-role="controlgroup" data-type="vertical">
+		<a href="blank.html" data-role="button"> Teacher 1 and info </a>
+		<a href="blank.html" data-role="button"> Teacher 2 and info </a>
 	</div>
 </div>
-
 </body>
 </html>
