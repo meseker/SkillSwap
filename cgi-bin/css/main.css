@@ -26,54 +26,58 @@ border-bottom: solid 1px #000000;
 
 #profile_wrapper {
 	padding-top: 50px;
-	padding-left: 20px;
+	//padding-left: 20px;
 	padding-right: 20px;
-	width: 80%;
+	width: 100%;
 	margin: auto;
 }
 
 #second_layer_profile {
-	height: 250px;
-	padding-bottom: 10px;
+	height: 150px;
+	//padding-bottom: 10px;
+	border-width: 1px;
+	border-color: #000000;
+	border-style: solid;
+	width: 100%;
 }
 
 #personal_info_container {
-	border-width: 1px;
-	border-color: #000000;
-	border-style: solid;
-	float: right;
+	
+	//float: right;
 }
 
 #personal_info {
-	width: 300px;
-	height: 200px;
-	margin-left: 20px;
+	//width: 100px;
+	height: 150px;
+	//margin-left: 20px;
+	padding-left: 10px;
 }
 
 #user_pic_container {
-	border-width: 1px;
-	border-color: #000000;
-	border-style: solid;
+	border-right-width: 1px;
+	border-right-color: #000000;
+	border-right-style: solid;
 	float: left;
 } 
 
 #user_pic {
-	width: 125px;
-	height: 125px;
-	padding: 5px;
+	width: 150;
+	height: 150;
+	//padding: 5px;
 }
 
 #third_layer_profile {
 	padding-bottom: 50px;
 }
 
-#lesson_info_container {
+.lesson_info_container {
 	border-width: 1px;
 	border-color: #000000;
 	border-style: solid;
+	//padding-bottom: 10px;
 }
 
-#lesson_info {
+.lesson_info {
 	width: 600px;
 	height: 400px;
 	margin-left: 20px;
@@ -163,20 +167,30 @@ border-bottom: solid 1px #000000;
 	padding-top: 35px;
 }
 
-#header {
-	background-color : #0099ff;
-	color : white;
+.header_extra_style {
+	//background-color : #0099ff;
+	//color : white;
 	padding : 10px;
-	width : 100%;
-}
+	//width : 100%;
+} 
 
 #navigation_bar {
 	height : 55px;
-	background : -webkit-linear-gradient(bottom, rgb(80,71,105) 21%, rgb(0,153,255) 79%);
+	//background : -webkit-linear-gradient(bottom, rgb(80,71,105) 21%, rgb(0,153,255) 79%);
 	-webkit-box-shadow: 0 0 2px #E4E3E3;
-	padding : 10px;
+	//padding : 10px;
 	color : white;
 	width : 100%;
+}
+
+#home_options {
+	//width: 95%;
+	//margin: auto;
+}
+
+#home_options_container {
+	width : 80%;
+	margin: auto;
 }
 
 #nav_button{
@@ -196,8 +210,11 @@ border-bottom: solid 1px #000000;
 	height : 55px;
 }
 
-#content {
-	width : 80%;
-	background-color:#CCCCFF;
+.ui-icon-exit-icon {
+	background-image: url("small_x_icon.png");
+}
+
+.ui-icon-home-icon {
+	background-image: url("/~meseker/cgi-bin/WWW/cgi-bin/icons/home.png");
 }
 
