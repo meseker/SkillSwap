@@ -18,11 +18,12 @@
 	<script src="jquery.mobile-1.2.0.js"></script>
 </head>
 <body>
-<div id="header">
+<div data-role="header">
 	<center>
 		Skill Searcher
 	</center>
 </div>
+
 <div id="navigation_bar">
 	<!--This div will be responsible for holding the username/logout, or the login_in if they are not logged in-->
 	<div id="left_user_part">

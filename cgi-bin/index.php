@@ -18,29 +18,12 @@
 	<script src="jquery.mobile-1.2.0.js"></script>
 </head>
 <body>
-<div id="header">
-	<center>
-		Skill Searcher
-	</center>
-</div>
 
-Database info
-
-servername = mysql-user-meseker.stanford.edu
-username = ccs147meseker
-password   = ceivohng
-database = c_cs147_meseker
-
-<div id="navigation_bar">
-	<!--This div will be responsible for holding the username/logout, or the login_in if they are not logged in-->
-	<div data-role="navbar" class="nav-glyphish-example" data-grid="c">
-		<ul>
-			<li><a href="index.html" id="home" data-icon="custom" class="ui-btn-active">Home</a></li>
-			<li><a href="mail.html" id="email" data-icon="custom">Mail</a></li>
-		</ul>
-	</div>
-</div>
-<br> <br>
+<?php
+	session_start();
+	include 'header.php'; 
+	
+	?>
 
 <div id="content">
 	<div id="control_panel" data-role="controlgroup" data-type="vertical">

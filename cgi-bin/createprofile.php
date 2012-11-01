@@ -18,24 +18,10 @@
 	<script src="jquery.mobile-1.2.0.js"></script>
 </head>
 <body>
-<div id="header">
-	<center>
-		Skill Searcher
-	</center>
-</div>
-<div id="navigation_bar">
-	<!--This div will be responsible for holding the username/logout, or the login_in if they are not logged in-->
-	<div id="left_user_part">
-		Hello Username
-		<br>
-		<small><i><a href="index.html"> logout </a></i></small>
-	</div>
-	<div id="right_button_part" data-role="controlgroup" data-type="horizontal">
-		<a href="index.html" data-role="button"> HOME </a>
-		<a href="profile.html" data-role="button"> PROFILE </a>
-		<a href="mail.html" data-role="button"> MAIL </a>
-	</div>
-</div>
+<?php
+	//header
+	include 'header.php'; 
+?>
 <br><br>
 	<div id="first_layer_profile">
 		<h1 id="profile_header">Create Profile</h1>
