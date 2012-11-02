@@ -41,7 +41,11 @@ session_start();
 		<ul>
 			<li><a href="index.php" id="home" data-icon="home-icon" class="ui-btn-active">Home</a></li>
 			<li><a href="mail.php" id="email" data-icon="mail-icon">Mail</a></li>
-			<li><a href="#login_popup" data-icon="custom" data-rel="popup" data-transition="flip" id="login_button">Login</a></li>
+			<?php
+			if(!isset($_SESSION['logged_in'])) 
+				echo "<li><a href='#login_popup' data-icon='custom' data-rel='popup' data-transition='flip' id='login_button'>Login</a></li>";
+			else echo "<li><a href='profile.php' data-icon='custom'>Profile</a></li>";
+			?>
 		</ul>
 	</div>
 </div>
@@ -55,7 +59,6 @@ session_start();
 	</div>
 </div>
 <?php
-
 if($_POST)
 {
 	$link = mysql_connect('mysql-user-master.stanford.edu', 'ccs147meseker', 'ceivohng');
@@ -108,7 +111,7 @@ if ($row=mysql_fetch_array($salt))
 		          <label for="pw" class="ui-hidden-accessible">Password:</label>
 		          <input type="password" name="password" id="pass" value="" placeholder="password" data-theme="a" />
 
-		    	  <button type="submit" data-theme="b">Sign in</button>
+		    	  <button type="submit" data-theme="b">Login</button>
 				</div>
 			</form>
 		</div>

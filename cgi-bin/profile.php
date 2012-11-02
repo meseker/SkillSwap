@@ -25,6 +25,13 @@ if(!isset($_SESSION['logged_in']))
 	<script src="jquery.mobile-1.2.0.js"></script>
 </head>
 <body>
+<?php
+$link = mysql_connect('mysql-user-master.stanford.edu', 'ccs147meseker', 'ceivohng');
+mysql_select_db('c_cs147_meseker');
+
+$user = mysql_fetch_array(mysql_query("SELECT * FROM Users WHERE email='" . $_SESSION['email'] . "'"));
+$lessons = mysql_query("SELECT * FROM Lessons WHERE userID='" . $user['userID'] . "'");
+?>
 <div data-role="header" class="ui-header ui-bar-a header_extra_style">
 	<center>
 		Skill Searcher
@@ -52,13 +59,21 @@ if(!isset($_SESSION['logged_in']))
 		</ul>
 	</div>
 	<div id="profile_wrapper">
-		<div style="padding-left:10px;padding-bottom:10px;">&nbsp;</div>
+		<div class="notice_top">
+			<?php
+			if(isset($_SESSION['notice']))
+			{
+				echo $_SESSION['notice'];
+				unset($_SESSION['notice']);
+			} else echo "&nbsp;";
+			?>
+		</div>
 		<div id="second_layer_profile">
 			<div id="user_pic_container"><img src="user.png" id="user_pic" /></div>
 			<div id="personal_info_container">
 				<table id="personal_info">
-					<tr><td>NAME</td></tr>
-					<tr><td>EMAIL</td></tr>
+					<tr><td><?php echo $_SESSION['name'] ?></td></tr>
+					<tr><td><?php echo $_SESSION['email'] ?></td></tr>
 					<tr><td>LOCATION</td></tr>
 				</table>
 			</div>
@@ -66,26 +81,38 @@ if(!isset($_SESSION['logged_in']))
 		<br /><br />
 		<div id="third_layer_profile">
 			<div class="lesson_info_container">
-				<table class="lesson_info">
-					<tr><td><u><strong>TEACHING</strong></u></td></tr>
-					<tr><td>LESSON DESCRIPTION (for teacher)</td></tr>
-					<tr><td>EXPERIENCE (for teacher)</td></tr>
-					<tr><td>COST PER HOUR (for teacher)</td></tr>
-				</table>
+				<div class="lesson_info">
+					<u><strong>TEACHING</strong></u><br/><br/>
+					<?php
+					while($row = mysql_fetch_array($lessons))
+					{
+						echo "LESSON DESCRIPTION<br/>";
+						echo $row['lesson_description'] . "<br/><br/>";
+						echo "EXPERIENCE<br/>";
+						echo $row['experience'] . "<br/><br/>";
+						echo "COST PER HOUR<br/>";
+						echo $row['cost'] . "<br/><br/><hr noshade size=1><br/><br/>";
+					}
+					?>
+				</div>
 			</div>
-			<a href="createlisting.php" data-role="button">Create Listing</a>
+			<div class="profile_option">
+				<a href="createlisting.php" data-role="button">Create Listing</a>
+			</div>
 			<br />
 			<br />
 			<br />
 			<div class="lesson_info_container">	
 				<table class="lesson_info">
 					<tr><td><u><strong>LEARNING</strong></u></td></tr>
-					<tr><td>LESSON DESSCRIPTION (for teacher)</td></tr>
+					<tr><td>LESSON DESCRIPTION (for teacher)</td></tr>
 					<tr><td>EXPERIENCE (for teacher)</td></tr>
 					<tr><td>COST PER HOUR (for teacher)</td></tr>
 				</table>
 			</div>
-			<a href="createlisting.php" data-role="button">Create Listing</a>
+			<div class="profile_option">
+				<a href="categories.php" data-role="button">Find a Teacher</a>
+			</div>
 		</div>
 		<div id="fourth_layer_profile">
 			<div id="availability_info_container">
