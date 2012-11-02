@@ -13,6 +13,12 @@ border-top: solid 1px #000000;
 border-bottom: solid 1px #000000;
 }
 
+#content {
+	margin-left:auto;
+	margin-right:auto;
+	padding:10px;
+}
+
 #profile_header {
 	width: 80%;
 	margin: auto;
@@ -173,15 +179,6 @@ border-bottom: solid 1px #000000;
 	padding : 10px;
 	//width : 100%;
 } 
-
-#navigation_bar {
-	height : 55px;
-	//background : -webkit-linear-gradient(bottom, rgb(80,71,105) 21%, rgb(0,153,255) 79%);
-	-webkit-box-shadow: 0 0 2px #E4E3E3;
-	//padding : 10px;
-	color : white;
-	width : 100%;
-}
 
 #home_options {
 	//width: 95%;

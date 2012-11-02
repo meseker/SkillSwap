@@ -1,13 +1,24 @@
-<?php 
-	include "header.php";
-	?>
+<?php
+	session_start();
+?>
+<html>
+<head>
+	<?php include 'head.php'?>
+</head>
+<body>
+<?php
+	include 'header.php';
+?>
 <br><br>
 <div id="content">
-	<form action="search.php" method="post">
+	<form action="search.php" method="search">
 		<div data-role="fieldcontain">
 			<label for="search">Search for specific activity</label>
-			<input type="search" name="activity_search" id="search" value="" />
+			<input type="search" name="skill_search" id="skill_search" value="" />
+			<br/>
+			<center>
 			<button type="submit" data-theme="b">Search</button>
+			</center>
 		</div>
 	</form>
 	

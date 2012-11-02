@@ -1,22 +1,19 @@
 <?php
 	session_start();
 ?>
-
+<html>
+<head>
+	<?php include 'head.php'?>
+</head>
+<body>
 <?php
 	include 'header.php';
 ?>
 <div id="home_options_container">
 	<div id="home_options">
-	<?php
-		if(!isset($_SESSION['logged_in']))
-		{
-			echo "<a href='createprofile.php' data-role='button'> Create a Profile </a>";
-			echo "<br />";
-		}
-	?>
-	<a href="createlisting.php" data-role="button"> Create Listing! </a>
+		<a href="createlisting.php" data-role="button"> Create Listing! </a>
 		<br />
-		<a href="categories.php" data-role="button"> Find a Teacher! </a>
+		<a href="findlisting.php" data-role="button"> Find a Teacher! </a>
 	</div>
 </div>
 <?php
