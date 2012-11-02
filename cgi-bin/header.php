@@ -1,41 +1,49 @@
+<html>
+<head>
+    <title>Skill Searcher</title>
+    <link rel="Stylesheet" rev="Stylesheet" href="css/main.css" /> 
+    <title>Skill Searcher</title> 
+    <meta charset="utf-8">
+	<meta name="apple-mobile-web-app-capable" content="yes">
+ 	<meta name="apple-mobile-web-app-status-bar-style" content="black">
+	<meta name="viewport" content="width=device-width, initial-scale=1"> 
+
+	<link rel="stylesheet" href="jquery.mobile-1.2.0.css" />
+
+	<link rel="stylesheet" href="style.css" />
+	<link rel="apple-touch-icon" href="appicon.png" />
+	<link rel="apple-touch-startup-image" href="startup.png">
+	
+	<script src="jquery-1.8.2.min.js"></script>
+	<script src="jquery.mobile-1.2.0.js"></script>
+	<script src="gen_validatorv4.js" type="text/javascript"></script>
+</head>
+<body>
 <div data-role="header">
-<?php
-	/* Using this database
-	 * Database info
-	 * servername = mysql-user-master.stanford.edu
-	 * username = ccs147meseker
-	 * password   = ceivohng
-	 * database = c_cs147_meseker 
-	 */
-	mysql_connect("mysql-user-master.stanford.edu", "ccs147meseker", "ceivohng") or die(mysql_error());
-	mysql_select_db("c_cs147_meseker") or die(mysql_error());
 
-	// Get a specific result from the "example" table
-
-	if(!isset($_SESSION['SESS_MEMBER_ID']) || trim($_SESSION['SESS_MEMBER_ID']) == '')
-	{
-		//create the "login" and underneath "create_profile" form
-		echo '<a href="#login" data-rel="popup" class="ui-btn-left"> Login </a>';
-	}
-		else
-		{
-			$query = "SELECT * from Users Where userId='".$_SESSION['SESS_MEMBER_ID']."'";
-			$user = mysql_query($query) or die(mysql_error());
-			echo "<div class='ui-btn-left' style='float:left'><p><a href='profile.php'>".$user[name]."</a></p>";
-			echo "<small><p><a href='#logout'> logout </a></p></small></div>";
-		}
-?>
-	<h1>Skill Searcher</h1>
-	<a href="index.php" id="home" data-icon="custon" class="ui-btn-right" style='float:right;margin-right:30px'> </a>
-	<a href="mail.php" id="email" data-icon="custom" class="ui-btn-right" style='float:right'> </a>
+<div data-role="header" class="ui-header ui-bar-a header_extra_style">
+	<center>
+		Skill Searcher
+	</center>
 </div>
 
-<div data-role="popup" id="login.php" data-transition="slidedown" data-position-to="window" data-shadow="true" data-history="true">
-	<form action="login" method="post">
-		<label for="username">Username:</label>
-		<input type="text" name="username" id="user">
-		<label for="password">Password:</label>
-		<input type="password" name="password" id="password">
-		<input type="submit" value="Login">
-	</form>
+<div id="navigation_bar">
+	<!--This div will be responsible for holding the username/logout, or the login_in if they are not logged in-->
+	<div data-role="navbar">
+		<ul>
+			<li><a href="index.php" id="home" data-icon="home-icon" class="ui-btn-active">Home</a></li>
+			<li><a href="mail.php" id="email" data-icon="mail-icon">Mail</a></li>
+			<?php
+				if(isset($_SESSION['loggedin'])
+				{	
+					echo "<li><a href='profile.php' data-icon='custom' id='profile'>";
+					echo "Profile</a></li>";
+				}
+				else{
+					echo "<li><a href='#login_popup' data-icon='custom' data-rel='popup'";
+					echo "data-transition='flip' id='login_button'>Login</a></li>";
+				}
+			?>
+		</ul>
+	</div>
 </div>

@@ -1,64 +1,66 @@
-<html>
-<head>
-    <title>Skill Searcher</title>
-    <link rel="Stylesheet" rev="Stylesheet" href="css/main.css" /> 
-    <title>Skill Searcher</title> 
-    <meta charset="utf-8">
-	<meta name="apple-mobile-web-app-capable" content="yes">
- 	<meta name="apple-mobile-web-app-status-bar-style" content="black">
-	<meta name="viewport" content="width=device-width, initial-scale=1"> 
-
-	<link rel="stylesheet" href="jquery.mobile-1.2.0.css" />
-
-	<link rel="stylesheet" href="style.css" />
-	<link rel="apple-touch-icon" href="appicon.png" />
-	<link rel="apple-touch-startup-image" href="startup.png">
-	
-	<script src="jquery-1.8.2.min.js"></script>
-	<script src="jquery.mobile-1.2.0.js"></script>
-</head>
-<body>
-<?php
-	//header
-	include 'header.php'; 
-?>
+<?php 
+	include 'header.php';
+	?>
 <br><br>
-	<div id="first_layer_profile">
-		<h1 id="profile_header">Create Profile</h1>
-	</div>
-	<div id="mini_nav">
-		<ul style="list-style-type:none;float:left;">
-			<li><a href="index.html">Home</a></li>
-		</ul>
-		<ul style="list-style-type:none;float:right;padding-right:15px">
-			<li style="display:inline;"><a href="#">Login</a></li>
-		</ul>
-	</div>
-	<div id="second_layer_create_profile">
-		<div id="create_user_pic_container">
-			<img src="user.png" id="user_pic" style="float:left;padding:20px;"/>
-			<div style="float:right;padding-top:80px;padding-right:100px;"><a href="#">Upload Photo</a></div>
-		</div>
-		</div>
-	</div>
-	<div id="third_layer_create_profile">
-		<div id="create_personal_info_container">
-			<table id="create_personal_info">
-				<tr><td>ADD PERSONAL INFO</td></tr>
-			</table>
-		</div>
-		<div id="create_experience_container">
-			<table id="create_experience">
-				<tr><td>ADD EXPERIENCE</td></tr>
-			</table>
-		</div>
-	</div>
-	<div id="fourth_layer_create_profile">
-		<div id="create_calendar_container">
-			<table id="create_calendar">
-				<tr><td>ADD AVAILABILITY</td></tr>
-			</table>
-		</div>
-	</div>
+	<form action="post" method="post" id="reg_form" name="reg_form">
+		<div style="padding:10px 20px;">
+		  <h3>Register below to get access to local teachers</h3>
+		  <label for="firstname_reg">First Name:</label>
+		  <input type="text" name="firstname_reg" id="firstname_reg" value="" placeholder="firstname_reg" data-theme="a" />
+
+		  <label for="lastname_reg">Last Name:</label>
+		  <input type="text" name="lastname_reg" id="lastname_reg" value="" placeholder="lastname_reg" data-theme="a" />
+
+		  <label for="email_reg">Email:</label>
+		  <input type="text" name="email" id="email_reg" value="" placeholder="username" data-theme="a" />
+
+		  <label for="pw">Password:</label>
+		  <input type="password" name="pass1_reg" id="pass1_reg" value="" placeholder="pass1_reg" data-theme="a" />
+		   
+		  <label for="pass2_reg">Confirm Password:</label>
+		  <input type="password" name="pass2_reg" id="pass2_reg" value="" placeholder="pass2_reg" data-theme="a" />
+		  
+		  <button type="submit" data-theme="b">Sign up</button>
+		  </div>
+	</form>
+<script type="text/javascript">
+	var frmvalidator  = new Validator("reg_form");
+	frmvalidator.addValidation("email_reg","req","Please enter in an email");
+	frmvalidator.addValidation("email_reg","regexp\b[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}\b","Please enter in a valid email");
+ 
+	frmvalidator.addValidation("pass1_reg","eqelmnt=pass2_reg", "Sorry, your password and password confirmation don't match");
+</script>
+
+<?php
+if($_POST)
+{
+	$link = mysql_connect('mysql-user-master.stanford.edu', 'ccs147meseker', 'ceivohng');
+	mysql_select_db('c_cs147_meseker');
+	$email = mysql_real_escape_string($_POST['email_reg']);
+	$first_name = mysql_real_escape_string($_POST['firstname_reg']);
+	$last_name = mysql_real_escape_string($_POST['lastname_reg']);
+	$password = mysql_real_escape_string($_POST['pass1_reg']);
+	
+	$user = mysql_query("SELECT * FROM Users WHERE email='" . $email . "'");
+	if($row=mysql_fetch_array($user))
+	{
+		$salt = mysql_query("SELECT * FROM Saltine WHERE saltID='1'");
+		$salt_row = mysql_fetch_array($salt);
+		$password = mysql_real_escape_string($_POST['password']);
+		$password_attempt = crypt($password, $salt_row['salt_string']);
+		if($password_attempt == $row['password'])
+		{
+			$_SESSION['name'] = $row['name'];
+			$_SESSION['logged_in'] = "YES";
+			echo "<script>$(function(){window.location.href='http://www.stanford.edu/~meseker/cgi-bin/WWW/cgi-bin/profile.php'});</script>";
+		} else {
+			echo "User name or password is incorrect.";
+		}
+	} else {
+		echo "User name or password is incorrect.";
+	}
+	
+	}
+?>
 </body>
 </html>

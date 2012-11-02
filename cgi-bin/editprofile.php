@@ -2,7 +2,7 @@
 <head>
     <title>Skill Searcher</title>
     <link rel="Stylesheet" rev="Stylesheet" href="css/main.css" /> 
-    <title>Skill Searcher</title> 
+
     <meta charset="utf-8">
 	<meta name="apple-mobile-web-app-capable" content="yes">
  	<meta name="apple-mobile-web-app-status-bar-style" content="black">
@@ -18,25 +18,22 @@
 	<script src="jquery.mobile-1.2.0.js"></script>
 </head>
 <body>
-<div id="header">
+<div data-role="header" class="ui-header ui-bar-a header_extra_style">
 	<center>
 		Skill Searcher
 	</center>
 </div>
+
 <div id="navigation_bar">
 	<!--This div will be responsible for holding the username/logout, or the login_in if they are not logged in-->
-	<div id="left_user_part">
-		Hello Username
-		<br>
-		<small><i><a href="index.html"> logout </a></i></small>
-	</div>
-	<div id="right_button_part" data-role="controlgroup" data-type="horizontal">
-		<a href="index.html" data-role="button"> HOME </a>
-		<a href="profile.html" data-role="button"> PROFILE </a>
-		<a href="mail.html" data-role="button"> MAIL </a>
+	<div data-role="navbar">
+		<ul>
+			<li><a href="index.php" id="home" data-icon="home-icon">Home</a></li>
+			<li><a href="mail.php" id="email" data-icon="mail-icon">Mail</a></li>
+			<li><a href="profile.php" data-icon="custom" class="ui-btn-active">Profile</a></li>
+		</ul>
 	</div>
 </div>
-<br><br>
 	<div id="first_layer_profile">
 		<h1 id="profile_header">Edit User Profile</h1>
 	</div>
@@ -44,18 +41,9 @@
 		<ul style="list-style-type:none;float:left;">
 			<li>Hi, NAME</li>
 		</ul>
-		<ul style="list-style-type:none;float:right;padding-right:15px">
-			<li style="display:inline;"><a href="index.html">Home</a></li>
-			&nbsp; &nbsp;
-			<li style="display:inline;"><a href="profile.html">Profile</a></li>
-			&nbsp; &nbsp;
-			<li style="display:inline;"><a href="mail.html">Mail</a></li>
-			&nbsp; &nbsp;
-			<li style="display:inline;"><a href="#">Logout</a></li>
-		</ul>
 	</div>
 	<div id="profile_wrapper">
-		<div style="padding-left:10px;padding-bottom:10px;"><a href="profile.html">Save</a></div>
+		<div style="padding-left:10px;padding-bottom:10px;"><a href="profile.php">Save</a></div>
 		<div id="second_layer_profile">
 			<div id="user_pic_container"><img src="user.png" id="user_pic" /></div>
 			<div id="personal_info_container">
@@ -65,9 +53,10 @@
 				</table>
 			</div>
 		</div>
+		<br /><br />
 		<div id="third_layer_profile">
-			<div id="lesson_info_container">
-				<table id="lesson_info">
+			<div class="lesson_info_container">
+				<table class="lesson_info">
 					<tr><td>EDIT PROFILE INFO</td></tr>
 				</table>
 			</div>
