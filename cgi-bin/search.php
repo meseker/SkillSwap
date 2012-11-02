@@ -14,32 +14,35 @@
 	//now the fun part of constructing out all the elements
 	$search_value = "";
 	$max_rows = 10;
-	if( empty($_POST('skill_search')))
+	if( empty($_POST['skill_search']))
 	{
 		//again, here, I need to scrub the input, but we will lack that out for now 
 		//and worry about that later
-		$search_value = $_GET("target");
+		$search_value = $_GET["target"];
 	}
 	else
 		{
-			$search_value = $_POST("skill_search");
+			$search_value = $_POST["skill_search"];
 		}
 	echo $search_value;
-	/*Console($search_value);
-	$link = mysql_connect('mysql-user-master.stanford.edu', 'ccs147meseker', 'ceivohng');
+	
+	mysql_connect('mysql-user-master.stanford.edu', 'ccs147meseker', 'ceivohng');
 	mysql_select_db('c_cs147_meseker');
-	$query = "SELECT * FROM skills WHERE skillName SOUNDS LIKE ".search_value; 
-	$skill = mysql_query($query);
-	if( empty($skill) )
+	
+	/*$query = "SELECT * FROM skills WHERE skillName SOUNDS LIKE ".$search_value; 
+	$skill = mysql_query($query);*/
+	if( true /*empty($skill)*/ )
 	{
 		echo "<center><p><h2> No results found</h2> </p></center>";
 	}
+	else
+	{
 	$query = "SELECT * FROM LESSONS WHERE ".$skill["skillID"]."LIMIT ".max_rows;
 	$lessons = mysql_query($query);*/
 	//construct list header
-	//echo "<ul data-role='listview' class='ui=listview'>";
+	echo "<ul data-role='listview' class='ui=listview'>";
 	//construct list rows
-/*	while($row = mysql_fetch_assoc($lessons))
+	while($row = mysql_fetch_assoc($lessons))
 	{
 		$query = "SELECT * FROM USERS WHERE ".$row['userID'];
 		$user = mysql_query($query);
@@ -54,7 +57,8 @@
 		echo "<p class='ui-li-desc'>".$row['experience']."</p>";
 		echo "<p class='ui-li-desc'>".$row['lesson_description']."</p>";
 		echo "</a></div></div></li>";
-	}*/
+	}
+	}
 ?>
 </div>
 </body>

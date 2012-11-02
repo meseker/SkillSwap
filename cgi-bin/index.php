@@ -9,15 +9,17 @@
 <?php
 	include 'header.php';
 ?>
+</div>
+<br> <br>
+<br> <br>
 <div id="home_options_container">
 	<div id="home_options">
 		<a href="createlisting.php" data-role="button"> Create Listing! </a>
 		<br />
-		<a href="findlisting.php" data-role="button"> Find a Teacher! </a>
+		<a href="categories.php" data-role="button"> Find a Teacher! </a>
 	</div>
 </div>
 <?php
-
 if($_POST)
 {
 	$link = mysql_connect('mysql-user-master.stanford.edu', 'ccs147meseker', 'ceivohng');
@@ -34,6 +36,7 @@ if($_POST)
 		{
 			$_SESSION['name'] = $row['name'];
 			$_SESSION['logged_in'] = "YES";
+			$_SESSION['email'] = $email;
 			echo "<script>$(function(){window.location.href='http://www.stanford.edu/~meseker/cgi-bin/WWW/cgi-bin/profile.php'});</script>";
 		} else {
 			echo "User name or password is incorrect.";
@@ -69,7 +72,7 @@ if ($row=mysql_fetch_array($salt))
 		          <label for="pw" class="ui-hidden-accessible">Password:</label>
 		          <input type="password" name="password" id="pass" value="" placeholder="password" data-theme="a" />
 
-		    	  <button type="submit" data-theme="b">Sign in</button>
+		    	  <button type="submit" data-theme="b">Login</button>
 				</div>
 			</form>
 		</div>

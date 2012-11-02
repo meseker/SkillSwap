@@ -11,7 +11,7 @@
 		<?php
 		if(isset($_SESSION['logged_in']))
 		{
-			echo "<li><a href='mail.php' id='email' data-icon='mail-icon'>Mail</a></li>";
+			//echo "<li><a href='mail.php' id='email' data-icon='mail-icon'>Mail</a></li>";
 			echo "<li><a href='profile.php' data-icon='custom' id='profile'>";
 			echo "Profile</a></li>";
 		}
@@ -19,8 +19,8 @@
 		{
 			echo "<li><a href='#login_popup' data-icon='custom' data-rel='popup'";
 			echo "data-transition='flip' id='login_button'>Login</a></li>";
-			echo "<li><a href='createprofile.php' data-icon='custom' data-rel='popup'";
-			echo "data-transition='flip' id='register_button'>Register</a></li>";
+			/*echo "<li><a href='createprofile.php' data-icon='custom' data-rel='popup'";
+			echo "data-transition='flip' id='register_button'>Register</a></li>";*/
 		}
 	?>
 		
