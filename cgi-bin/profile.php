@@ -19,22 +19,8 @@ mysql_select_db('c_cs147_meseker');
 
 $user = mysql_fetch_array(mysql_query("SELECT * FROM Users WHERE email='" . $_SESSION['email'] . "'"));
 $lessons = mysql_query("SELECT * FROM Lessons WHERE userID='" . $user['userID'] . "'");
+
 ?>
-<div data-role="header" class="ui-header ui-bar-a header_extra_style">
-	<center>
-		Skill Searcher
-	</center>
-</div>
-<div id="navigation_bar">
-	<!--This div will be responsible for holding the username/logout, or the login_in if they are not logged in-->
-	<div data-role="navbar">
-		<ul>
-			<li><a href="index.php" id="home" data-icon="home-icon">Home</a></li>
-			<li><a href="mail.php" id="email" data-icon="mail-icon">Mail</a></li>
-			<li><a href="profile.php" data-icon="custom" class="ui-btn-active">Profile</a></li>
-		</ul>
-	</div>
-</div>
 	<div id="first_layer_profile">
 		<h1 id="profile_header">User Profile</h1>
 	</div>
@@ -51,7 +37,9 @@ $lessons = mysql_query("SELECT * FROM Lessons WHERE userID='" . $user['userID'] 
 			<?php
 			if(isset($_SESSION['notice']))
 			{
-				echo $_SESSION['notice'];
+	    
+
+		echo $_SESSION['notice'];
 				unset($_SESSION['notice']);
 			} else echo "&nbsp;";
 			?>
@@ -99,7 +87,7 @@ $lessons = mysql_query("SELECT * FROM Lessons WHERE userID='" . $user['userID'] 
 				</table>
 			</div>
 			<div class="profile_option">
-				<a href="categories.php" data-role="button">Find a Teacher</a>
+				<a href="findlisting.php" data-role="button">Find a Teacher</a>
 			</div>
 		</div>
 		<div id="fourth_layer_profile">

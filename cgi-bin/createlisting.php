@@ -39,27 +39,12 @@ if($_POST)
 	{
 		$_SESSION['notice'] = "Listing created!";
 		$_SESSION['wait_for_redirect'] = "WAIT!";
-		echo "<script>$(function(){window.location.href='http://www.stanford.edu/~meseker/cgi-bin/WWW/cgi-bin/profile.php'});</script>";
+		echo "<script>$(function(){window.location.href='http://www.stanford.edu/~jtsanch/cgi-bin/skill-searcher/profile.php'});</script>";
 	} else {
 		$_SESSION['notice'] = "You messed up somewhere";
 	}
 }
 ?>
-<div data-role="header" class="ui-header ui-bar-a header_extra_style">
-	<center>
-		Skill Searcher
-	</center>
-</div>
-<div id="navigation_bar">
-	<!--This div will be responsible for holding the username/logout, or the login_in if they are not logged in-->
-	<div data-role="navbar">
-		<ul>
-			<li><a href="index.php" id="home" data-icon="home-icon">Home</a></li>
-			<li><a href="mail.php" id="email" data-icon="mail-icon">Mail</a></li>
-			<li><a href="profile.php" data-icon="custom">Profile</a></li>
-		</ul>
-	</div>
-</div>
 <div class="notice_top">
 <?php
 	if(isset($_SESSION['notice']))

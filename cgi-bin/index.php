@@ -9,14 +9,13 @@
 <?php
 	include 'header.php';
 ?>
-</div>
 <br> <br>
 <br> <br>
 <div id="home_options_container">
 	<div id="home_options">
 		<a href="createlisting.php" data-role="button"> Create Listing! </a>
 		<br />
-		<a href="categories.php" data-role="button"> Find a Teacher! </a>
+		<a href="findlisting.php" data-role="button"> Find a Teacher! </a>
 	</div>
 </div>
 <?php
@@ -37,7 +36,7 @@ if($_POST)
 			$_SESSION['name'] = $row['name'];
 			$_SESSION['logged_in'] = "YES";
 			$_SESSION['email'] = $email;
-			echo "<script>$(function(){window.location.href='http://www.stanford.edu/~meseker/cgi-bin/WWW/cgi-bin/profile.php'});</script>";
+			echo "<script>$(function(){window.location.href='http://www.stanford.edu/~jtsanch/cgi-bin/skill-searcher/profile.php'});</script>";
 		} else {
 			echo "User name or password is incorrect.";
 		}
@@ -67,7 +66,7 @@ if ($row=mysql_fetch_array($salt))
 				<div style="padding:10px 20px;">
 				  <h3>Please sign in</h3>
 		          <label for="un" class="ui-hidden-accessible">Username:</label>
-		          <input type="text" name="email" id="un" value="" placeholder="username" data-theme="a" />
+		          <input type="text" name="email" id="un" value="" placeholder="user@email.com" data-theme="a" />
 
 		          <label for="pw" class="ui-hidden-accessible">Password:</label>
 		          <input type="password" name="password" id="pass" value="" placeholder="password" data-theme="a" />
