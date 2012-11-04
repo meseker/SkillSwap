@@ -7,6 +7,7 @@ if(!isset($_SESSION['logged_in']))
 ?>
 <html>
 <head>
+<<<<<<< HEAD
     <title>Skill Searcher</title>
     <link rel="Stylesheet" rev="Stylesheet" href="css/main.css" /> 
 
@@ -26,6 +27,15 @@ if(!isset($_SESSION['logged_in']))
 </head>
 <body>
 <?php
+=======
+	<?php include 'head.php'?>
+</head>
+<body>
+<?php
+	include 'header.php';
+?>
+<?php
+>>>>>>> 0b0bfe3bbfff433135aed171a76f00e8f1fdc30b
 if($_POST)
 {
 	$link = mysql_connect('mysql-user-master.stanford.edu', 'ccs147meseker', 'ceivohng');
