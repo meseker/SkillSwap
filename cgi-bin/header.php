@@ -2,12 +2,15 @@
 	<center>
 		Skill Searcher
 	</center>
+	<a data-role="button" data-direction="reverse" data-rel="back" data-icon="arrow-l" data-iconpos="left">
+            Back
+    </a>
 </div>
 
 <!--This div will be responsible for holding the username/logout, or the login_in if they are not logged in-->
 <div data-role="navbar">
 	<ul>
-		<li><a href="index.php" id="home" data-icon="home-icon" class="ui-btn-active">Home</a></li>
+		<li><a href="index.php" id="home" data-icon="home-icon">Home</a></li>
 		<?php
 		if(isset($_SESSION['logged_in']))
 		{

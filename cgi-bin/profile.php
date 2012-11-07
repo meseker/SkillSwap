@@ -18,6 +18,7 @@ mysql_select_db('c_cs147_meseker');
 
 $user = mysql_fetch_array(mysql_query("SELECT * FROM Users WHERE email='" . $_SESSION['email'] . "'"));
 $lessons = mysql_query("SELECT * FROM Lessons WHERE userID='" . $user['userID'] . "'");
+
 ?>
 	<div id="first_layer_profile">
 		<h1 id="profile_header">User Profile</h1>
@@ -35,7 +36,9 @@ $lessons = mysql_query("SELECT * FROM Lessons WHERE userID='" . $user['userID'] 
 			<?php
 			if(isset($_SESSION['notice']))
 			{
-				echo $_SESSION['notice'];
+	    
+
+		echo $_SESSION['notice'];
 				unset($_SESSION['notice']);
 			} else echo "&nbsp;";
 			?>

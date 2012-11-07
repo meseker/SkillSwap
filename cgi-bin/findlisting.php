@@ -14,7 +14,7 @@
 	<form action="search.php" method="post">
 		<div data-role="fieldcontain">
 			<label for="search">Search for specific activity</label>
-			<input type="search" name="skill_search" id="skill_search" value="" />
+			<input type="search" name="skill_search" id="skill_search" value="" placeholder="tennis" />
 			<br/>
 			<center>
 			<button type="submit" data-theme="b">Search</button>
@@ -49,7 +49,7 @@
 				<li><a href="search.php?target=sculpture"> Sculpture</a></li>
 				<li><a href="search.php?target=painting">Painting</a></li>
 				<li><a href="search.php?target=graphic%20art">Graphic Art</a></li>
-				<li><a href="search.php?target=jewerly">Jewerly</a></li>
+				<li><a href="search.php?target=jewerly">Jewelry</a></li>
 			</ul>
 		</li>
 		<li><a>Academics</a>
