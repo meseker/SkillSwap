@@ -19,6 +19,7 @@ session_start();
 	</div>
 </div>
 <?php
+/* OLD LOGIN CODE
 if($_POST)
 {
 	$link = mysql_connect('mysql-user-master.stanford.edu', 'ccs147meseker', 'ceivohng');
@@ -44,7 +45,7 @@ if($_POST)
 		echo "User name or password is incorrect.";
 	}	
 }
-
+*/
 /*$salt = mysql_query("SELECT * FROM Saltine WHERE saltID='1'");
 if ($row=mysql_fetch_array($salt))
 {
