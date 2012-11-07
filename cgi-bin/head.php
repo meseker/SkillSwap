@@ -12,6 +12,5 @@
 	<link rel="apple-touch-icon" href="appicon.png" />
 	<link rel="apple-touch-startup-image" href="startup.png">
 	
-	<script src="jquery-1.8.2.min.js"></script>
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
 	<script src="jquery.mobile-1.2.0.js"></script>
-	<script src="gen_validatorv4.js" type="text/javascript"></script>
