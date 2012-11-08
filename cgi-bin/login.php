@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <?php
 <<<<<<< HEAD
 
@@ -64,3 +65,5 @@ else{
 ?>
 <script src="https://gist.github.com/3937494.js?file=login.php"></script>
 >>>>>>> 0b0bfe3bbfff433135aed171a76f00e8f1fdc30b
+=======
+>>>>>>> ddf6c59ded9996f36199ee6563ea7bad8e20b56c
