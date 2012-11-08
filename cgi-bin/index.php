@@ -62,9 +62,5 @@ if ($row=mysql_fetch_array($salt))
 		</form>
 	</div>
 </footer>
-=======
-	}
-?>
 </body>
->>>>>>> ddf6c59ded9996f36199ee6563ea7bad8e20b56c
 </html>
