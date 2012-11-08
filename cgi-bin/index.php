@@ -34,53 +34,7 @@ session_start();
 		</form>
 </div>
 <?php
-<<<<<<< HEAD
-/* OLD LOGIN CODE
-if($_POST)
-{
-	$link = mysql_connect('mysql-user-master.stanford.edu', 'ccs147meseker', 'ceivohng');
-	mysql_select_db('c_cs147_meseker');
-	$email = mysql_real_escape_string($_POST['email']);
-	$user = mysql_query("SELECT * FROM Users WHERE email='" . $email . "'");
-	if($row=mysql_fetch_array($user))
-	{
-		$salt = mysql_query("SELECT * FROM Saltine WHERE saltID='1'");
-		$salt_row = mysql_fetch_array($salt);
-=======
-	if($_POST)
-	{	
-		require_once 'config.php';
-		
-		$email = mysql_real_escape_string($_POST['email']);
-		echo $email;
-		
-		$user = mysql_query("SELECT * FROM Users WHERE email='$email'");
-		
-		$result = mysql_fetch_array($user);
-		
-		$salt = $result['salt'];
->>>>>>> ddf6c59ded9996f36199ee6563ea7bad8e20b56c
-		$password = mysql_real_escape_string($_POST['password']);
-		$password = $password . $salt;
-	
-		$hashedPW = crypt($password);
-	
-		if($user['password'] == $hashPW )
-		{
-			$_SESSION['name'] = $row['name'];
-			$_SESSION['logged_in'] = "YES";
-			$_SESSION['email'] = $email;
-			header( 'Location : profile.php' ) ;
-		} else {
-			header( 'Location : index.php' ) ;
-			echo "User name or password is incorrect.";			
-		}
-<<<<<<< HEAD
-	} else {
-		echo "User name or password is incorrect.";
-	}	
-}
-*/
+
 /*$salt = mysql_query("SELECT * FROM Saltine WHERE saltID='1'");
 if ($row=mysql_fetch_array($salt))
 {
