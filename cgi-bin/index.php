@@ -13,7 +13,7 @@
 <br> <br>
 
 <center>
-<div id="	"> </div>
+<div id="message"> </div>
 </center>
 
 <div id="home_options_container">
@@ -26,7 +26,7 @@
 
 <div data-role="popup" id="login_popup" data-overlay-theme="b" data-theme="a" class="ui-corner-all" data-position-to="window" data-dismissable="false">
 	<a href="#" data-rel="back" data-role="button" data-theme="a" data-icon="delete" data-iconpos="notext" style=" float:left;">Close</a>
-	    <form id="login_form" class="login_form" action="login.php" value="login" method="post">
+	    <form id="login_form" class="login_form" action="login.php" method="post">
 		      <div style="padding:10px 20px;">
 			  <h3>Please sign in</h3>
 		      <label for="email" class="ui-hidden-accessible">Username:</label>
@@ -48,7 +48,7 @@ $(function(){
 		var form_data = {
 			email : $("#email").val(),
 			password : $("#password").val(),
-			is_ajax: 1
+			is_ajax: '1'
 		};
 		$.ajax({
 				type: "POST",
@@ -65,7 +65,7 @@ $(function(){
 					}
 				}
 			});
-			return false;
+		return false;
 	});
 	$("#logout").click(function() {
 		var action = $("#logout_button").attr("action");
@@ -77,7 +77,7 @@ $(function(){
 					$("$message").html("<p class='success'> You have logged out successfully! </p>");
 				}
 				});
-			return false;
+		return false;
 	});
 });
 </script>

@@ -24,4 +24,6 @@
 			echo "success";
 		} 
 	}
+	else
+		echo "failure";
 ?>
