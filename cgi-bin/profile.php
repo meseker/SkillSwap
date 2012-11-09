@@ -7,11 +7,12 @@ if(!isset($_SESSION['logged_in']))
 ?>
 <html>
 <head>
-    <?php include 'head.php'; ?>
+	<?php include 'head.php'?>
 </head>
-
 <body>
-<?php include 'header.php'; ?>
+<?php
+	include 'header.php';
+?>
 <?php
 $link = mysql_connect('mysql-user-master.stanford.edu', 'ccs147meseker', 'ceivohng');
 mysql_select_db('c_cs147_meseker');
