@@ -8,9 +8,9 @@
 <?php
 if(isset($_SESSION['logged_in']))
 {	
-	echo "<a href='logout.php' data-role='button' data-icon='delete' data-iconpos='right'>";
-	echo "logout";
-	echo "</a>";
+	echo "<form method='POST' class='logout_button' action='logout.php'>";
+    echo "<input type='submit' id='logout' name='logout' value='logout' />";
+	echo "</form>";
 }
 ?>
 
@@ -30,9 +30,9 @@ if(isset($_SESSION['logged_in']))
 		else
 		{
 			echo "<li><a href='#login_popup' data-icon='custom' data-rel='popup'";
-			echo "data-transition='flip' id='login_button'>Login</a></li>";
+			echo "data-transition='slidedown' id='login_button'>Login</a></li>";
 			echo "<li><a href='createprofile.php' data-icon='custom'";
-			echo "data-transition='flip' id='register_button'>Register</a></li>";
+			echo "data-transition='slidedown' id='register_button'>Register</a></li>";
 		}
 	?>
 	</ul>

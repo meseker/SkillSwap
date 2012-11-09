@@ -11,9 +11,11 @@
 ?>
 <br> <br>
 <br> <br>
+
 <center>
 <div id="	"> </div>
 </center>
+
 <div id="home_options_container">
 	<div id="home_options">
 		<a href="createlisting.php" data-role="button"> Create Listing! </a>
@@ -21,6 +23,7 @@
 		<a href="findlisting.php" data-role="button"> Find a Teacher! </a>
 	</div>
 </div>
+
 <div data-role="popup" id="login_popup" data-overlay-theme="b" data-theme="a" class="ui-corner-all" data-position-to="window" data-dismissable="false">
 	<a href="#" data-rel="back" data-role="button" data-theme="a" data-icon="delete" data-iconpos="notext" style=" float:left;">Close</a>
 	    <form id="login_form" class="login_form" action="login.php" value="login" method="post">
@@ -36,6 +39,8 @@
 			</div>
 		</form>
 </div>
+
+
 <script type="text/javascript">
 $(function(){	
 	$("#login").click(function() {
@@ -62,7 +67,20 @@ $(function(){
 			});
 			return false;
 	});
+	$("#logout").click(function() {
+		var action = $("#logout_button").attr("action");
+		$.ajax({
+				type: "POST",
+				url: action,
+				data: 0,
+				success: function(response){
+					$("$message").html("<p class='success'> You have logged out successfully! </p>");
+				}
+				});
+			return false;
+	});
 });
 </script>
+
 </body>
 </html>
