@@ -3,8 +3,17 @@
 body {
 	-webkit-text-size-adjust: none;
 }
+/*
+ * Login.php
+ */
+.error {
+	color : red;
+}
 
-
+.success {
+	color : green;
+}
+ 
 #first_layer_profile {
 width: 100%;
 height: 50px;
@@ -89,10 +98,6 @@ border-bottom: solid 1px #000000;
 	margin-left: 20px;
 }
 
-#fourth_layer_profile {
-
-}
-
 #availability_info_container {
 	border-width: 1px;
 	border-color: #000000;
@@ -174,67 +179,12 @@ border-bottom: solid 1px #000000;
 }
 
 .header_extra_style {
-	//background-color : #0099ff;
-	//color : white;
 	padding : 10px;
-	//width : 100%;
 } 
-
-#navigation_bar {
-	height : 55px;
-	//background : -webkit-linear-gradient(bottom, rgb(80,71,105) 21%, rgb(0,153,255) 79%);
-	-webkit-box-shadow: 0 0 2px #E4E3E3;
-	//padding : 10px;
-	color : white;
-	width : 100%;
-}
-
-#home_options {
-	//width: 95%;
-	//margin: auto;
-}
-
-#home_options_container {
-	width : 80%;
-	margin: auto;
-}
-
-#nav_button{
-	padding : 5px;
-	height : 50px;
-	background-color : black;
-	color : white;
-}
-
-#left_user_part{
-	float : left;
-	height : 55px;
-}
-
-#right_button_part {
-	float : right;
-	height : 55px;
-}
-
-.ui-icon-exit-icon {
-	background-image: url("small_x_icon.png");
-}
-
-.ui-icon-home-icon {
-	background-image: url("/~meseker/cgi-bin/WWW/cgi-bin/icons/home.png");
-}
 
 .notice_top {
 	font-family: "Helvetica";
 	color: #CC0000;
 	padding-left: 10px;
 	padding-bottom: 10px;
-}
-
-#logout {
-	//position:absolute;
-	bottom:0;
-	width:100%;
-	height:60px;   /* Height of the footer */
-	background:#6cf;
 }

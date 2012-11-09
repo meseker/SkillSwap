@@ -1,4 +1,3 @@
-//Skills.php
 
 <?php
 	//using code implementation from 
