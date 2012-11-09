@@ -16,8 +16,7 @@ if(!isset($_SESSION['logged_in']))
 <?php
 if($_POST)
 {
-	$link = mysql_connect('mysql-user-master.stanford.edu', 'ccs147meseker', 'ceivohng');
-	mysql_select_db('c_cs147_meseker');
+	require_once 'config.php';
 	
 	$email = mysql_real_escape_string($_SESSION['email']);
 	$user = mysql_fetch_array(mysql_query("SELECT userID FROM Users WHERE email='{$email}'"));

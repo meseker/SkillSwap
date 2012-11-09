@@ -11,6 +11,9 @@
 ?>
 <br> <br>
 <br> <br>
+<center>
+<div id="	"> </div>
+</center>
 <div id="home_options_container">
 	<div id="home_options">
 		<a href="createlisting.php" data-role="button"> Create Listing! </a>
@@ -19,49 +22,47 @@
 	</div>
 </div>
 <div data-role="popup" id="login_popup" data-overlay-theme="b" data-theme="a" class="ui-corner-all" data-position-to="window" data-dismissable="false">
-	<a href="#" data-rel="back" data-role="button" data-theme="a" data-icon="exit-icon" data-iconpos="notext" class="ui-btn-left">Close</a>
-	    <form id="login" class="login" action="" value="login" method="post">
+	<a href="#" data-rel="back" data-role="button" data-theme="a" data-icon="delete" data-iconpos="notext" style=" float:left;">Close</a>
+	    <form id="login_form" class="login_form" action="login.php" value="login" method="post">
 		      <div style="padding:10px 20px;">
 			  <h3>Please sign in</h3>
-		      <label for="un" class="ui-hidden-accessible">Username:</label>
-		      <input type="text" name="email" id="un" value="" placeholder="user@email.com" data-theme="a" />
+		      <label for="email" class="ui-hidden-accessible">Username:</label>
+		      <input type="text" name="email" id="email" id="un" placeholder="user@email.com" data-theme="a" />
 
-	          <label for="pw" class="ui-hidden-accessible">Password:</label>
-	          <input type="password" name="password" id="pass" value="" placeholder="password" data-theme="a" />
+	          <label for="password" class="ui-hidden-accessible">Password:</label>
+	          <input type="password" name="password" id="password"  placeholder="password" data-theme="a" />
 
-	    	  <button type="submit" value="login data-theme="b">Login</button>
+	    	  <input type="submit" id="login" name="login" value="login"></input>
 			</div>
 		</form>
 </div>
-<?php
-	if($_POST)
-	{	
-		require_once 'config.php';
-		
-		$email = mysql_real_escape_string($_POST['email']);
-		echo $email;
-		
-		$user = mysql_query("SELECT * FROM Users WHERE email='$email'");
-		
-		$result = mysql_fetch_array($user);
-		
-		$salt = $result['salt'];
-		$password = mysql_real_escape_string($_POST['password']);
-		$password = $password . $salt;
-	
-		$hashedPW = crypt($password);
-	
-		if($user['password'] == $hashPW )
-		{
-			$_SESSION['name'] = $row['name'];
-			$_SESSION['logged_in'] = "YES";
-			$_SESSION['email'] = $email;
-			header( 'Location : profile.php' ) ;
-		} else {
-			header( 'Location : index.php' ) ;
-			echo "User name or password is incorrect.";			
-		}
-	}
-?>
+<script type="text/javascript">
+$(function(){	
+	$("#login").click(function() {
+		var action = $("#login_form").attr("action");
+		var form_data = {
+			email : $("#email").val(),
+			password : $("#password").val(),
+			is_ajax: 1
+		};
+		$.ajax({
+				type: "POST",
+				url: action,
+				data: form_data,
+				success: function(response) {
+					if( response == "success")
+					{
+						$("#message").html("<p class='success'> You have logged in successfully! </p>");
+					}
+					else
+					{
+						$("#message").html("<p class='error'>Invalid username and/or password. </p>");
+					}
+				}
+			});
+			return false;
+	});
+});
+</script>
 </body>
 </html>

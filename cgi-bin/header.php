@@ -1,16 +1,25 @@
 <div data-role="header" class="ui-header ui-bar-a header_extra_style" >
-	<center>
-		Skill Searcher
-	</center>
 	<a data-role="button" data-direction="reverse" data-rel="back" data-icon="arrow-l" data-iconpos="left">
             Back
     </a>
+	<center>
+		Skill Searcher
+	</center>
+<?php
+if(isset($_SESSION['logged_in']))
+{	
+	echo "<a href='logout.php' data-role='button' data-icon='delete' data-iconpos='right'>";
+	echo "logout";
+	echo "</a>";
+}
+?>
+
 </div>
 
 <!--This div will be responsible for holding the username/logout, or the login_in if they are not logged in-->
 <div data-role="navbar">
 	<ul>
-		<li><a href="index.php" id="home" data-icon="home-icon">Home</a></li>
+		<li><a href="index.php" id="home" data-icon="home">Home</a></li>
 		<?php
 		if(isset($_SESSION['logged_in']))
 		{

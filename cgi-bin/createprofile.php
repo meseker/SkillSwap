@@ -48,7 +48,7 @@
 	
 		$salt = bin2hex(mcrypt_create_iv(32, MCRYPT_DEV_URANDOM));
 		echo $salt."<br><br>";
-		$hash = crypt($password.$salt);
+		$hash = crypt($password,$salt);
 		echo $hash."<br><br>";
 		$user = mysql_fetch_array( mysql_query("SELECT * FROM Users WHERE email='" . $email . "'"));
 	
