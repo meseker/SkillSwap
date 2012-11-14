@@ -47,13 +47,17 @@
 		$password = sanitize($_POST['password']);
 	
 		$salt = bin2hex(mcrypt_create_iv(32, MCRYPT_DEV_URANDOM));
-		echo $salt."<br><br>";
 		$hash = crypt($password,$salt);
-		echo $hash."<br><br>";
 		$user = mysql_fetch_array( mysql_query("SELECT * FROM Users WHERE email='" . $email . "'"));
 	
 		if (!($fetch = mysql_fetch_array( mysql_query("SELECT email FROM Users WHERE email='$email'")))){
 			mysql_query("INSERT INTO Users (name, password,salt,email) VALUES ('$name', '$hash', '$salt', '$email')") or die(mysql_error());
+			$new_user = mysql_fetch_array(mysql_query("SELECT * FROM Users WHERE email='{$email}'"));
+			$_SESSION['name'] = $new_user['name'];
+			$_SESSION['logged_in'] = "YES";
+			$_SESSION['userID'] = $new_user['userID'];
+			$_SESSION['notice'] = "<p class='success'>Profile created!</p>";
+			echo "<script>$(function(){window.location.href='http://www.stanford.edu/~meseker/cgi-bin/WWW/cgi-bin/index.php'});</script>";
 		}
 		else{
 			echo "Sorry! $email is already in the base";

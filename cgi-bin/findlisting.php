@@ -13,12 +13,9 @@
 <div id="content">
 	<form action="search.php" method="post">
 		<div data-role="fieldcontain">
-			<label for="search">Search for specific activity</label>
-			<input type="search" name="skill_search" id="skill_search" value="" placeholder="tennis" />
+			<input type="search" name="skill_search" id="skill_search" value="" placeholder="Search..." />
 			<br/>
-			<center>
-			<button type="submit" data-theme="b">Search</button>
-			</center>
+
 		</div>
 	</form>
 	

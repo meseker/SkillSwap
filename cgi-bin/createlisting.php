@@ -2,7 +2,9 @@
 session_start();
 if(!isset($_SESSION['logged_in']))
 {
-	die("To access this page, you need to <a href='index.php'>LOGIN</a>");
+	//die("To access this page, you need to <a href='index.php'>LOGIN</a>");
+	$_SESSION['login_results'] = "<p class='error'> You need to Login to view this page </p>";
+	header( 'Location: index.php' ) ;
 }
 ?>
 <html>
@@ -18,9 +20,7 @@ if($_POST)
 {
 	require_once 'config.php';
 	
-	$email = mysql_real_escape_string($_SESSION['email']);
-	$user = mysql_fetch_array(mysql_query("SELECT userID FROM Users WHERE email='{$email}'"));
-	$userID = $user['userID'];
+	$userID = mysql_real_escape_string($_SESSION['userID']);
 	
 	$skillName = mysql_real_escape_string($_POST['skillName']);
 	$skill = mysql_fetch_array(mysql_query("SELECT skillID FROM skills WHERE skillName='" . $skillName . "'"));
@@ -36,11 +36,11 @@ if($_POST)
 	$cost = mysql_real_escape_string($_POST['cost']);
 	if(mysql_query("INSERT INTO Lessons (userID,lesson_description,experience,cost,skillID) VALUES ('" . $userID . "','" . $lesson_description . "','" . $experience . "','" . $cost . "','" . $skillID . "')"))
 	{
-		$_SESSION['notice'] = "Listing created!";
+		$_SESSION['notice'] = "<p class='success'>Listing created!</p>";
 		$_SESSION['wait_for_redirect'] = "WAIT!";
-		echo "<script>$(function(){window.location.href='http://www.stanford.edu/~jtsanch/cgi-bin/skill-searcher/profile.php'});</script>";
+		echo "<script>$(function(){window.location.href='http://www.stanford.edu/~meseker/cgi-bin/WWW/cgi-bin/index.php'});</script>";
 	} else {
-		$_SESSION['notice'] = "You messed up somewhere";
+		$_SESSION['notice'] = "<p class='error'>You messed up somewhere</p>";
 	}
 }
 ?>
@@ -69,9 +69,7 @@ if($_POST)
 		<label for="cst" class="ui-hidden-accessible">Cost Per Hour</label>
         <input type="text" name="cost" id="cst" value="" placeholder="Cost Per Hour"  />
 		<br />
-		<div class="profile_option">
-			<button type="submit" data-theme="b">CREATE</button>
-		</div>
+		<button type="submit" data-theme="b">CREATE</button>
 	</div>
 </form>
 </body>

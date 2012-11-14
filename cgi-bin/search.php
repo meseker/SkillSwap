@@ -9,7 +9,16 @@
 <?php
 	include 'header.php';
 ?>
-<div id="content">
+<div id="search_content">
+<form action="search.php" method="post" id="search_results_search_bar">
+	<div data-role="fieldcontain">
+		<input type="search" name="skill_search" id="skill_search" value="" placeholder="Search..."/>
+		<br/>
+		<center>
+		<!-- <button type="submit" data-theme="b">Search</button> -->
+		</center>
+	</div>
+</form>
 <?php 
 	//now the fun part of constructing out all the elements
 	$search_value = "";
@@ -31,7 +40,7 @@
 	$query = "SELECT * FROM skills WHERE skillName SOUNDS LIKE '".$search_value."'"; 
 	$skill = mysql_query($query);
 
-	if( empty($skill) )
+	if(!$skill)
 	{
 		echo "<center><p><h2> No results found</h2> </p></center>";
 	}
@@ -54,7 +63,7 @@
 		echo "<li data-theme='c' class='ui-btn ui-btn-icon-right ui-li ui-btn-up-c'>";
 		echo "<div class='ui-btn-inner ui-li'>";
 		echo "<div class='ut-btn-text'>";
-		echo "<a href=profile.php>";//'#".$row['userID']."'>";
+		echo "<a href=teacherprofile.php?teacher_userID=" . $row['userID'] . "&lessonID=" . $row['lessonID'] . ">";//'#".$row['userID']."'>";
 		echo "<p class='ui-li-aside ui-li-desc'><strong>";
 		echo "$".$row['cost']." per hour </strong></p>";
 		echo "<h3 class='ui-li-heading'>".$user_row['name']."</h3>";
