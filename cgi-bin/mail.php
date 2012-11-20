@@ -31,8 +31,8 @@ if(!isset($_SESSION['logged_in']))
 	mysql_select_db('c_cs147_meseker');
 	$userID = mysql_real_escape_string($_SESSION['userID']);
 	$user = mysql_fetch_array(mysql_query("SELECT * FROM Users WHERE userID='{$userID}'"));
-	
-	$all_inmail = mysql_query("SELECT * FROM Mail WHERE EmailTo='" . $user['email'] . "'") or die(mysql_error());
+	//echo $user['email'];
+	$all_inmail = mysql_query("SELECT * FROM Mail WHERE EmailTo='" . $userID . "'") or die(mysql_error());
 
 	if (mysql_num_rows($all_inmail) == 0) {
 		echo "You haven't got any messages to display";
@@ -47,13 +47,15 @@ if(!isset($_SESSION['logged_in']))
 				//$_SESSION['Subject'] = $row['Subject'];
 				//$_SESSION['Message'] = $row['Message'];
 				while ($row = mysql_fetch_assoc($all_inmail)) {
+					//echo "emailto: " . $row['EmailTo'] . "emailfrom: " . $row['EmailFrom'];
+					$sender = mysql_fetch_array(mysql_query("SELECT * FROM Users WHERE userID='" . $row['EmailFrom'] . "'"));
     				echo "<form action='messagedisplay.php' method='post'>";
     				echo "<input type='hidden' name='EmailFrom' value='" . $row['EmailFrom'] . "'>";
     				echo "<input type='hidden' name='Subject' value='" . $row['Subject'] . "'>";
     				echo "<input type='hidden' name='Message' value='" . $row['Message'] . "'>";
     				echo "<button type ='submit' >";
     				echo "From: ";
-    				echo $row['EmailFrom'];
+    				echo $sender['name'];
     				echo "<br/> Subject: ";
     				echo $row['Subject'];
     				echo "</button>";
@@ -70,7 +72,7 @@ if(!isset($_SESSION['logged_in']))
 	//$email = $_SESSION['email'];
 	//$email = "shaurya@stanford.blah";
 	
-	$all_outmail = mysql_query("SELECT * FROM Mail WHERE EmailFrom='" . $user['email'] . "'") or die(mysql_error());
+	$all_outmail = mysql_query("SELECT * FROM Mail WHERE EmailFrom='" . $userID . "'") or die(mysql_error());
 	
 	if (mysql_num_rows($all_outmail) == 0) {
 		echo "You haven't got any messages to display";
@@ -85,13 +87,14 @@ if(!isset($_SESSION['logged_in']))
 				//$_SESSION['Subject'] = $row['Subject'];
 				//$_SESSION['Message'] = $row['Message'];
 				while ($row = mysql_fetch_assoc($all_outmail)) {
+					$receiver = mysql_fetch_array(mysql_query("SELECT * FROM Users WHERE userID='" . $row['EmailTo'] . "'"));
     				echo "<form action='messagedisplay.php' method='post'>";
     				echo "<input type='hidden' name='EmailTo' value='" . $row['EmailTo'] . "'>";
     				echo "<input type='hidden' name='Subject' value='" . $row['Subject'] . "'>";
     				echo "<input type='hidden' name='Message' value='" . $row['Message'] . "'>";
     				echo "<button type ='submit' >";
     				echo "To: ";
-    				echo $row['EmailTo'];
+    				echo $receiver['name'];
     				echo "<br/> Subject: ";
     				echo $row['Subject'];
     				echo "</button>";

@@ -55,7 +55,7 @@ $user = mysql_fetch_array(mysql_query("SELECT * FROM Users WHERE userID='" . mys
 				<table id="personal_info">
 					<tr><td id="teacher_name_header" colspan="2"><?php echo strtoupper($teacher['name']) ?></td></tr>
 					<tr><td><a href="mailto:<?php echo $teacher['email'] ?>"><?php echo $teacher['email'] ?></a></td></tr>
-					<tr><td style="padding-right:10px;"><a href="#message_popup" data-rel="popup" data-role="button">Message Me</a></td></tr>
+					<tr><td style="padding-right:10px;padding-bottom: 10px;"><a href="#message_popup" data-rel="popup" data-role="button">Message Me</a></td></tr>				
 				</table>
 			</div>
 			<!-- <div id="user_pic_container"><img src="user.png" id="user_pic" /></div> -->
@@ -93,7 +93,7 @@ $user = mysql_fetch_array(mysql_query("SELECT * FROM Users WHERE userID='" . mys
 						while($row = mysql_fetch_array($lessons))
 						{
 							$skill = mysql_fetch_array(mysql_query("SELECT * FROM skills WHERE skillId='" . $row['skillID'] . "'"));
-							echo "<a href='teacherprofile.php?teacher_userID=" . $_GET['teacher_userID'] . "&lessonID=" . $row['lessonID'] . "'>" . $skill['skillName'] . "</a><br/>";
+							echo "<a href='teacherprofile.php?teacher_userID=" . $_GET['teacher_userID'] . "&lessonID=" . $row['lessonID'] . "'>" . $skill['skillName'] . "</a><br/><br/>";
 						}
 					}
 					?>

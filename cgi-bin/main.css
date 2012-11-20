@@ -20,7 +20,7 @@ textarea {
 	font-family: Helvetica;
 	font-size: 15px;
 	font-weight: bold;
-
+	
 	color: #8A0808;
 	padding-top: 10px;
 }
@@ -166,6 +166,60 @@ border-color: #A4A4A4;
 	margin: auto;
 	background-color: #ffffff;
 }
+
+#second_layer_message_display {
+	width: 95%;
+	margin: auto;
+}
+
+#message_header_container {
+	border-top: solid 1px #A4A4A4;
+	border-left: solid 1px #A4A4A4;
+	border-right: solid 1px #A4A4A4;
+	border-bottom: dashed 1px #A4A4A4;
+	background-color: #D8D8D8;	
+}
+
+#message_header {
+	padding: 10px;
+}
+
+#message_body_container {
+	border-left: solid 1px #A4A4A4;
+	border-right: solid 1px #A4A4A4;
+	border-bottom: solid 1px #A4A4A4;
+	background-color: #ffffff;
+	//height: 100px;
+}
+
+#message_body {
+	padding-top: 10px;
+	padding-left: 10px;
+	padding-right: 10px;
+	padding-bottom: 50px;
+}
+
+.message_content {
+	padding: 10px;
+}
+.message_content_header
+{
+	font-family: Helvetica;
+	font-size: 15px;
+	font-weight: bold;
+
+	color: #8A0808;
+}
+
+#message_subject_header {
+	font-family: Helvetica;
+	font-size: 30px;
+	font-weight: bold;
+
+	//color: #8A0808;
+	padding-top: 10px;
+}
+
 #personal_info_container {	
 	float: left;
 }

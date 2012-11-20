@@ -18,7 +18,7 @@ if($_POST)
 	$past_page = mysql_real_escape_string($_POST['past_page']);
 	if($sender && $receiver && (strlen($subject) > 0) && (strlen($message) > 0))
 	{
-		$query = "INSERT INTO Mail (EmailFrom, EmailTo, Message, Subject) VALUES ('" . $sender['email'] ."', '" . $receiver['email'] . "', '{$message}', '{$subject}')";
+		$query = "INSERT INTO Mail (EmailFrom, EmailTo, Message, Subject) VALUES ('" . $senderID ."', '" . $receiverID . "', '{$message}', '{$subject}')";
 		if(mysql_query($query))
 		{
 			$_SESSION['notice'] = "<p class='success'> Message sent! </p>";

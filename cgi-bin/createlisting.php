@@ -10,11 +10,6 @@ if(!isset($_SESSION['logged_in']))
 <html>
 <head>
 	<?php include 'head.php'?>
-</head>
-<body>
-<?php
-	include 'header.php';
-?>
 <?php
 if($_POST)
 {
@@ -43,6 +38,11 @@ if($_POST)
 		$_SESSION['notice'] = "<p class='error'>You messed up somewhere</p>";
 	}
 }
+?>
+</head>
+<body>
+<?php
+	include 'header.php';
 ?>
 <div class="notice_top">
 <?php

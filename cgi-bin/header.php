@@ -3,7 +3,7 @@
             Back
     </a>
 	<center>
-		Skill Swap
+		Skill Shop
 	</center>
 <?php
 if(isset($_SESSION['logged_in']))

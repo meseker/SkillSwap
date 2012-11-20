@@ -22,7 +22,7 @@ $user = mysql_fetch_array(mysql_query("SELECT * FROM Users WHERE userID='" . $_S
 
 $lessons = mysql_query("SELECT * FROM Lessons WHERE userID='" . $user['userID'] . "'");
 
-$all_inmail = mysql_query("SELECT * FROM Mail WHERE EmailTo='" . $user['email'] . "'");
+$all_inmail = mysql_query("SELECT * FROM Mail WHERE EmailTo='" . $user['userID'] . "'");
 $num_messages = mysql_num_rows($all_inmail);
 ?>
 	<div id="mini_nav">
